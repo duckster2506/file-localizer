@@ -2,6 +2,14 @@
 // so you can safely delete all default props below
 
 export default {
-  failed: 'Action failed',
-  success: 'Action was successful'
+  field: {
+    language: 'Language',
+    format: 'Format',
+    javascript: 'Javascript',
+    java: 'Java'
+  },
+
+  message: {
+    intro: 'Translate locale file'
+  }
 };
