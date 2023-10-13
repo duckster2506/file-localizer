@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Translate locale file with Google Cloud Translate API for Javascript, Java",
   "productName": "File localizer",
-  "author": "duckster2506",
+  "author": "ducdao2506@gmail.com",
   "private": true,
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
