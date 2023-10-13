@@ -1,5 +1,5 @@
 <template>
-  <Button flat icon="fa-solid fa-language" :tooltip="$t('language')">
+  <Button flat icon="fa-solid fa-language" :tooltip="$t('field.language')">
     <q-popup-proxy v-model="proxy">
       <q-list dense bordered padding class="rounded-borders">
         <q-item v-for="option in options" v-ripple

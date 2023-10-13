@@ -12,12 +12,12 @@
       </q-card>
     </ExpansionPanel>
 
-    <q-card class="shadow-0 tw-mt-3">
+    <q-card class="shadow-0 tw-mt-3 tw-bg-transparent">
       <q-card-section horizontal>
-        <FormatCard :format="format" display/>
+        <FormatCard v-if="isSelected" :format="format" display/>
 
         <q-card-section>
-          <div id="editor"></div>
+          <CodeBlock :value="value" language="javascript" :theme="theme"/>
         </q-card-section>
       </q-card-section>
     </q-card>
@@ -27,9 +27,11 @@
 <script setup lang="ts">
 import FormatCard from "components/Main/FormatCard.vue";
 import ExpansionPanel from "components/ExpansionPanel.vue";
+import CodeBlock from "components/CodeBlock.vue";
 
-import {ref, computed, onMounted} from "vue";
-import {monaco} from "boot/monaco";
+import {Dark} from "quasar";
+import {ref, computed} from "vue";
+
 // Format options
 const options = computed(() => ['javascript', 'java'])
 // Target format
@@ -37,14 +39,8 @@ const format = ref<string>("")
 // Check if format is selected
 const isSelected = computed(() => format.value.length > 0)
 
-onMounted(() => {
-  const el = document.getElementById("editor")
-  if (el !== null) {
-    console.warn(el)
-    monaco.editor.create(el, {
-      value: "function hello() {\n\talert('Hello world!');\n",
-      language: 'javascript'
-    })
-  }
-})
+// Code editor's theme
+const theme = computed(() => Dark.isActive ? 'github-dark' : 'default')
+
+const value = ref<string>("console.log(13)")
 </script>
